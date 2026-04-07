@@ -1,4 +1,4 @@
-# 3310-UI-Component-Library
+# ACS 3310-UI-Component-Library
 
 **Purpose:** Provides reusable React components. Used to display posts, search content, and show publish status across the UI.
 
