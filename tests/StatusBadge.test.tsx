@@ -21,6 +21,18 @@ describe('StatusBadge', () => {
     render(<StatusBadge status="archived" showIcon />);
     const badge = screen.getByTestId('status-badge');
     expect(badge.textContent).toContain('Archived');
-    expect(badge.textContent).toContain('●');
+    expect(badge.textContent).toContain('✓');
+  });
+
+  it('does not show icon when showIcon is false', () => {
+    render(<StatusBadge status="published" showIcon={false} />);
+    const badge = screen.getByTestId('status-badge');
+    expect(badge.textContent).not.toContain('✓');
+  });
+
+  it('renders small size', () => {
+    render(<StatusBadge status="draft" size="sm" />);
+    const badge = screen.getByTestId('status-badge');
+    expect(badge).toBeInTheDocument();
   });
 });

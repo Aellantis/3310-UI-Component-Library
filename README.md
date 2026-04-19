@@ -34,10 +34,10 @@
 - **Output:** Rendered badge element
 
 - **Description:**  
-  Displays a colored label for a post’s publish status:
-  - Draft → gray  
-  - Published → green  
-  - Archived → amber  
+  Displays a colored label for a post's publish status:
+  - Draft → gray
+  - Published → green
+  - Archived → amber
 
   `showIcon` controls whether an icon appears **alongside** the text.  
   The text label is always shown to ensure readability and accessibility.  
@@ -101,19 +101,33 @@ const [query, setQuery] = useState("");
   }
 />
 ```
+
 ---
 
 ## Edge Cases
-- `SearchInput`: `debounceMs` of 0 fires synchronously. Negative values are coerced to 0 and log a console.warn in development.
+
+- `SearchInput`: `debounceMs` of 0 fires synchronously. Negative values are coerced to 0 and log a `console.warn` in development.
 - `SearchInput`: Clicking the clear button calls `onChange("")`. The parent must update its own state.
-- `StatusBadge`: Invalid status values render the raw string with no color or icon applied.
 - `PostCard`: `rawExcerpt` is rendered as-is. Callers are responsible for sanitizing and truncating content before passing.
 - `PostCard`: Invalid `createdAt` values are omitted rather than rendering `Invalid Date`.
 
+---
+
 ## Design Notes
-- `SearchInput` is controlled and holds no internal state.
-- `PostCard` composes StatusBadge internally for convenience but can still be used standalone.
+
+- `SearchInput` manages internal state to support debouncing, but stays in sync with the `value` prop.
+- `PostCard` composes `StatusBadge` internally for convenience but can still be used standalone.
 - `Status` uses a string literal union to map naturally to API responses.
-- `rawExcerpt` naming makes it explicit that sanitization is the caller’s responsibility.
+- `rawExcerpt` naming makes it explicit that sanitization is the caller's responsibility.
 - `footerActions` clarifies placement and avoids ambiguity compared to a generic actions prop.
 - `showIcon` only controls the icon — text is always displayed for clarity.
+
+## Viewing Components
+ 
+This library includes [Storybook](https://storybook.js.org/) for interactive component previews. To launch it locally:
+ 
+```bash
+npm run storybook
+```
+ 
+Each component has its own stories covering the main props and states.

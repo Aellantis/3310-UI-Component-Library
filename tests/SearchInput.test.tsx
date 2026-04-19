@@ -25,12 +25,19 @@ describe("SearchInput", () => {
     expect(onChange).toHaveBeenCalledWith("");
   });
 
+  it("does not show clear button when disabled", () => {
+    const onChange = vi.fn();
+    render(<SearchInput value="test" onChange={onChange} disabled />);
+    expect(screen.queryByRole("button", { name: /clear search/i })).not.toBeInTheDocument();
+  });
+
   it("coerces negative debounceMs to 0 and warns", () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const onChange = vi.fn();
-
     render(<SearchInput value="a" onChange={onChange} debounceMs={-100} />);
-
     expect(warn).toHaveBeenCalled();
+    const input = screen.getByRole("textbox");
+    fireEvent.change(input, { target: { value: "b" } });
+    expect(onChange).toHaveBeenCalledWith("b");
   });
 });
