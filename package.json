@@ -1,6 +1,6 @@
 {
   "name": "postkit-ui-component-library",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "(Class Assignment) Reusable React components for displaying posts, search input, and publish status.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -20,7 +20,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly",
+    "build": "vite build && tsc --emitDeclarationOnly -p tsconfig.build.json",
     "test": "vitest run",
     "prepublishOnly": "npm test && npm run build",
     "storybook": "storybook dev -p 6006",

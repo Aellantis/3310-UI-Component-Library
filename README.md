@@ -77,7 +77,7 @@ npm install 3310-ui-component-library
 ## Example Usage
 
 ```tsx
-import { SearchInput, StatusBadge, PostCard } from "postkit-ui-components";
+import { SearchInput, StatusBadge, PostCard } from "postkit-ui-component-library";
 import { useState } from "react";
 
 const [query, setQuery] = useState("");
