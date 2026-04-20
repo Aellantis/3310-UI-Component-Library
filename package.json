@@ -1,17 +1,19 @@
 {
   "name": "postkit-ui-component-library",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "(Class Assignment) Reusable React components for displaying posts, search input, and publish status.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "module": "./dist/index.es.js",
       "import": "./dist/index.es.js",
       "require": "./dist/index.js"
     }
