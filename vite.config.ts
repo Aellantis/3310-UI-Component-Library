@@ -7,7 +7,12 @@ export default defineConfig({
     lib: {
       entry: "src/index.ts",
       name: "postkit-ui-components",
-      fileName: (format) => `index.${format}.js`,
+      formats: ["cjs", "es"],
+      fileName: (format) => {
+        if (format === "cjs") return "index.js";
+        if (format === "es") return "index.es.js";
+        return `index.${format}.js`;
+      },
     },
     rollupOptions: {
       external: ["react", "react-dom"],

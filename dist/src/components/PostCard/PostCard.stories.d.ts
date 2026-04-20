@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { PostCard } from "./PostCard";
+declare const meta: Meta<typeof PostCard>;
+export default meta;
+type Story = StoryObj<typeof PostCard>;
+export declare const Default: Story;
+export declare const Draft: Story;
+export declare const Archived: Story;
+export declare const WithFooterActions: Story;
+export declare const Clickable: Story;

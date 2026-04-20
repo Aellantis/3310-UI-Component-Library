@@ -20,7 +20,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly --rootDir src",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "test": "vitest run",
     "prepublishOnly": "npm test && npm run build",
     "storybook": "storybook dev -p 6006",
