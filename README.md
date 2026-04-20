@@ -2,7 +2,12 @@
 
 **Purpose:** Reusable React components for displaying posts, search input, and publish status.
 
----
+## Installation
+
+```bash
+npm install 3310-ui-component-library
+```
+
 
 ## Exports
 
